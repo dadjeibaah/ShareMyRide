@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UICollectionViewController {
+class PlacesController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,12 @@ class ViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
 
 
 }
