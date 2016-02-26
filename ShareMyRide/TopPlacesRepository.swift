@@ -7,6 +7,18 @@
 //
 
 import Foundation
-class TopPlacesRepository {
+
+ class Places {
+    var imageUrl:String?
     
+    init(imageUrl:String){
+        self.imageUrl = imageUrl
+    }
+    
+}
+
+ class TopPlacesRepository {
+    static func getTopPlaces()-> [Places]{
+        return [Places(imageUrl: "test1"), Places(imageUrl: "test2"), Places(imageUrl: "test3")]
+    }
 }
