@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		957B25741C7ECA15005555F3 /* RidesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B25731C7ECA15005555F3 /* RidesController.swift */; };
 		957B25761C7F90D7005555F3 /* RidesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B25751C7F90D7005555F3 /* RidesTableViewCell.swift */; };
-		957B25781C80DB87005555F3 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B25771C80DB87005555F3 /* MessagesViewController.swift */; };
+		957B25781C80DB87005555F3 /* RidesConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B25771C80DB87005555F3 /* RidesConversationController.swift */; };
 		958523A21C7A31B300D6F9C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958523A11C7A31B300D6F9C6 /* QuartzCore.framework */; };
 		958523A41C7A332F00D6F9C6 /* PlacesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958523A31C7A332F00D6F9C6 /* PlacesCollectionCell.swift */; };
+		9596249F1C878FE1007878F6 /* RidesMessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596249E1C878FE1007878F6 /* RidesMessagesController.swift */; };
 		95DAF6B51C7829B00066C435 /* TopPlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAF6B41C7829B00066C435 /* TopPlacesRepository.swift */; };
 		95DAF6B61C7829B00066C435 /* TopPlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAF6B41C7829B00066C435 /* TopPlacesRepository.swift */; };
 		95F0914E1C75847100EDA2B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0914D1C75847100EDA2B5 /* AppDelegate.swift */; };
@@ -46,10 +47,11 @@
 		777A2E176309FFBDE18C5648 /* Pods-ShareMyRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareMyRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareMyRide/Pods-ShareMyRide.release.xcconfig"; sourceTree = "<group>"; };
 		957B25731C7ECA15005555F3 /* RidesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesController.swift; sourceTree = "<group>"; };
 		957B25751C7F90D7005555F3 /* RidesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesTableViewCell.swift; sourceTree = "<group>"; };
-		957B25771C80DB87005555F3 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		957B25771C80DB87005555F3 /* RidesConversationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesConversationController.swift; sourceTree = "<group>"; };
 		957B25791C80DC18005555F3 /* ShareMyRide-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareMyRide-Bridging-Header.h"; sourceTree = "<group>"; };
 		958523A11C7A31B300D6F9C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		958523A31C7A332F00D6F9C6 /* PlacesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCollectionCell.swift; sourceTree = "<group>"; };
+		9596249E1C878FE1007878F6 /* RidesMessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesMessagesController.swift; sourceTree = "<group>"; };
 		95DAF6B41C7829B00066C435 /* TopPlacesRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopPlacesRepository.swift; sourceTree = "<group>"; };
 		95F0914A1C75847100EDA2B5 /* ShareMyRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareMyRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F0914D1C75847100EDA2B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,7 +120,8 @@
 				958523A31C7A332F00D6F9C6 /* PlacesCollectionCell.swift */,
 				957B25731C7ECA15005555F3 /* RidesController.swift */,
 				957B25751C7F90D7005555F3 /* RidesTableViewCell.swift */,
-				957B25771C80DB87005555F3 /* MessagesViewController.swift */,
+				957B25771C80DB87005555F3 /* RidesConversationController.swift */,
+				9596249E1C878FE1007878F6 /* RidesMessagesController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -381,8 +384,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F091501C75847100EDA2B5 /* PlacesController.swift in Sources */,
-				957B25781C80DB87005555F3 /* MessagesViewController.swift in Sources */,
+				957B25781C80DB87005555F3 /* RidesConversationController.swift in Sources */,
 				958523A41C7A332F00D6F9C6 /* PlacesCollectionCell.swift in Sources */,
+				9596249F1C878FE1007878F6 /* RidesMessagesController.swift in Sources */,
 				95F0914E1C75847100EDA2B5 /* AppDelegate.swift in Sources */,
 				957B25741C7ECA15005555F3 /* RidesController.swift in Sources */,
 				95DAF6B51C7829B00066C435 /* TopPlacesRepository.swift in Sources */,

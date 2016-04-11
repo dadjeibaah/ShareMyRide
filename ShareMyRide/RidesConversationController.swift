@@ -9,14 +9,24 @@
 import Foundation
 import UIKit
 
-class RideMessagesController:JSQMessagesViewController{
+class RideConversationController:JSQMessagesViewController{
+    
+    
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.senderId = "Test"
+        self.senderId = "1"
         self.senderDisplayName = "Dennis"
+        super.viewDidLoad()
+        
     }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
+    }
+    
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+        
     }
 }
