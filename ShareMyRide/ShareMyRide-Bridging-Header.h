@@ -9,5 +9,6 @@
 #ifndef ShareMyRide_h
 #define ShareMyRide_h
 #import <JSQMessagesViewController/JSQMessages.h>
+#import <DateTools/DateTools.h>
 
 #endif /* ShareMyRide_h */

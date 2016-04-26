@@ -1,13 +1,28 @@
 PODS:
+  - AlamoArgo (0.5.3):
+    - Alamofire (~> 3.1)
+    - Argo (~> 2.2)
+  - Alamofire (3.3.1)
+  - Argo (2.3.0)
+  - Curry (2.2.0)
+  - DateTools (1.7.0)
   - JSQMessagesViewController (7.2.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
 
 DEPENDENCIES:
+  - AlamoArgo
+  - Curry
+  - DateTools
   - JSQMessagesViewController
 
 SPEC CHECKSUMS:
+  AlamoArgo: ea3573c5874ca68406e2f5de2c3660582bd560c7
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Argo: 3dbecf4204b1a3cdd1df88ebd5e23d01b652d34b
+  Curry: c22d80fff7f5a4b1bbd531455c3e2dbb099658a3
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   JSQMessagesViewController: 73cab48aa92fc2d512f3b6724f3425cc47a19eb5
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

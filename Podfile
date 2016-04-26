@@ -2,7 +2,11 @@
 # platform :ios, '7.0'
 
 target 'ShareMyRide' do
+use_frameworks!
 pod 'JSQMessagesViewController'
+pod 'AlamoArgo'
+pod 'Curry'
+pod 'DateTools'
 
 end
 

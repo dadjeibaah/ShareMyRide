@@ -8,14 +8,28 @@
 
 import Foundation
 import UIKit
+import AlamoArgo
+import Alamofire
+
 class RidesController:UITableViewController {
     
-    var rides:[Rides]!
+    var ridesViewModel:[Ride]!
     var ridesSearch:UISearchController!
     
     override func viewDidLoad() {
-        rides = [Rides()]
+        ridesViewModel = []
         ridesSearch = UISearchController()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        Ride.Get(){
+            (response:Response<[Ride], NSError>) in
+            if let rides = response.result.value{
+                self.ridesViewModel = rides
+                self.tableView.reloadData()
+            }
+            else {print(response.result.error)}
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -23,11 +37,12 @@ class RidesController:UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rides.count
+        return ridesViewModel.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let tableViewCell = tableView.dequeueReusableCellWithIdentifier("RidesTableViewCell", forIndexPath: indexPath)
+        let tableViewCell = tableView.dequeueReusableCellWithIdentifier("RidesTableViewCell", forIndexPath: indexPath) as! RidesTableViewCell
+        tableViewCell.loadCellWithRideInfo(ridesViewModel[indexPath.row])
         return tableViewCell
     }
     

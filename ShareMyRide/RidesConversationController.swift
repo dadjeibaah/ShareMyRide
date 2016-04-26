@@ -6,6 +6,7 @@
 //  Copyright © 2016 Dennis Adjei-Baah. All rights reserved.
 //
 
+import JSQMessagesViewController
 import Foundation
 import UIKit
 

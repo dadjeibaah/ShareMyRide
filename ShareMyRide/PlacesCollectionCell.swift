@@ -15,6 +15,8 @@ class PlacesCollectionCell:UICollectionViewCell {
         super.init(coder: aDecoder)
         self.layer.cornerRadius = self.frame.size.width/2
     }
+    
+    
 
     
 }
