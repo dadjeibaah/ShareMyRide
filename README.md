@@ -1,2 +1,0 @@
-# ShareMyRide
-ShareMyRide iOS App
