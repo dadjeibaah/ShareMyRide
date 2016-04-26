@@ -1,0 +1,6 @@
+framework module AlamoArgo {
+  umbrella header "AlamoArgo-umbrella.h"
+
+  export *
+  module * { export * }
+}
