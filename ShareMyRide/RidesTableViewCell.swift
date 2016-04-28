@@ -29,8 +29,12 @@ class RidesTableViewCell:UITableViewCell {
         let date = Int(NSDate.ISOtoNSDate(timeLeaving).hoursUntil())
         if date >= 24{
             return String(format:"%02d days", NSDate.ISOtoNSDate(timeLeaving).daysUntil())
-        }else{
+        }else if date < 24 && date > 1 {
             return String(format:"%02d hours", date)
+        }else if date <= 1 && date > 0 {
+            return String(format: "%02d minutes", NSDate.ISOtoNSDate(timeLeaving).minutesUntil())
+        }else{
+            return "Past"
         }
     }
     

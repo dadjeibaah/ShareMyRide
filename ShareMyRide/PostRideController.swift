@@ -75,6 +75,7 @@ class PostRideController:UIViewController {
                 print(ridePost)
                 ridePost = ride.copyWithZone(nil) as! Ride
                 print(ridePost)
+                self.tabBarController?.selectedIndex = 0
             }else{
                 print(response.result.error)
             }
