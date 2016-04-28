@@ -43,31 +43,36 @@ class Ride :Decodable, NSCopying{
         return self
     }
     
-    convenience init(){
-        
-        self.init(
-            id:0,
-            rideSharer: 0,
-            destination: "",
-            timeLeaving: "",
-            duration: 0,
-            availableSeats:0,
-            longitude:0.0,
-            latitude:0.0
-            )
-    }
-    
-    
     
     func post(response:Response<Ride, NSError> -> Void){
         let urlRequest = NSMutableURLRequest(URL: NSURL(string:"http://localhost:8080/rides")!)
         urlRequest.HTTPMethod = Alamofire.Method.POST.rawValue
+        do{
+            urlRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(self.toDictionary(), options: NSJSONWritingOptions())
+        }catch{
+            // No op
+        }
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
         managerForInstance.request(urlRequest).responseDecodable(completionHandler:response)
     }
     
     static func Get(rideId:String = "", response:Response<[Ride], NSError> -> Void){
         URLRequest.HTTPMethod = Alamofire.Method.GET.rawValue
         manager.request(Ride.URLRequest).responseDecodable(completionHandler: response)
+    }
+    
+    private func toDictionary()->[String:String]{
+        var result = [String:String]()
+        result["rideSharer"] = "1"
+        result["destination"] = self.destination
+        result["timeLeaving"] = self.timeLeaving
+        result["duration"] = self.duration.description
+        result["availableSeats"] = self.availableSeats.description
+        result["latitude"] = "0.0"
+        result["longitude"] = "0.0"
+        return result
+    
     }
     
     

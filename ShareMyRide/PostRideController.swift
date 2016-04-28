@@ -58,10 +58,19 @@ class PostRideController:UIViewController {
     @IBAction func postRide(sender: AnyObject) {
         dismissFocusOnAllTextFields()
         print(postRideViewModel)
-        var ridePost = Ride()
+        var ridePost = Ride(
+            id:0,
+            rideSharer: 0,
+            destination: "",
+            timeLeaving: "",
+            duration: 0,
+            availableSeats:0,
+            longitude:0.0,
+            latitude:0.0
+        )
         getPostValues(ridePost)
         ridePost.post(){
-            (response:Response<Ride,NSError>) in
+            (response:Response<Ride, NSError>) in
             if let ride:Ride = response.result.value{
                 print(ridePost)
                 ridePost = ride.copyWithZone(nil) as! Ride
@@ -102,6 +111,7 @@ class PostRideController:UIViewController {
     func getPostValues(postRide:Ride){
         postRide.destination = destination.text!
         postRide.duration = Int(duration.text!)!
+        postRide.timeLeaving = postRideViewModel["timeLeaving"]! as! String
     }
     
 }
