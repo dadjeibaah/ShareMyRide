@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9500241E1CD1CE2300C3C98D /* RideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500241D1CD1CE2300C3C98D /* RideTests.swift */; };
+		950024201CD1CF0A00C3C98D /* RESTResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500241F1CD1CF0A00C3C98D /* RESTResource.swift */; };
 		9511AB2F1CCA676E00FE993E /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511AB2E1CCA676E00FE993E /* Ride.swift */; };
 		95315FD71CCC93D900D8C08F /* ISONSDateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */; };
 		9535CE851CCEAEFE00A0BB83 /* PostRideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9535CE841CCEAEFE00A0BB83 /* PostRideController.swift */; };
@@ -51,6 +52,7 @@
 		6E28EC6072DBFE9FCC1E2C67 /* Pods_ShareMyRide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareMyRide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		777A2E176309FFBDE18C5648 /* Pods-ShareMyRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareMyRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareMyRide/Pods-ShareMyRide.release.xcconfig"; sourceTree = "<group>"; };
 		9500241D1CD1CE2300C3C98D /* RideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideTests.swift; sourceTree = "<group>"; };
+		9500241F1CD1CF0A00C3C98D /* RESTResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTResource.swift; sourceTree = "<group>"; };
 		9511AB2E1CCA676E00FE993E /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISONSDateConverter.swift; sourceTree = "<group>"; };
 		9535CE841CCEAEFE00A0BB83 /* PostRideController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRideController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				95DAF6B41C7829B00066C435 /* TopPlacesRepository.swift */,
 				954B74A31CC3030000F02DCF /* User.swift */,
 				9511AB2E1CCA676E00FE993E /* Ride.swift */,
+				9500241F1CD1CF0A00C3C98D /* RESTResource.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				9596249F1C878FE1007878F6 /* RidesMessagesController.swift in Sources */,
 				95F0914E1C75847100EDA2B5 /* AppDelegate.swift in Sources */,
 				957B25741C7ECA15005555F3 /* RidesController.swift in Sources */,
+				950024201CD1CF0A00C3C98D /* RESTResource.swift in Sources */,
 				95DAF6B51C7829B00066C435 /* TopPlacesRepository.swift in Sources */,
 				957B25761C7F90D7005555F3 /* RidesTableViewCell.swift in Sources */,
 			);
