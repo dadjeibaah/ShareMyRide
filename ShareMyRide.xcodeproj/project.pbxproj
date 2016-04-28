@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9500241E1CD1CE2300C3C98D /* RideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500241D1CD1CE2300C3C98D /* RideTests.swift */; };
 		9511AB2F1CCA676E00FE993E /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511AB2E1CCA676E00FE993E /* Ride.swift */; };
 		95315FD71CCC93D900D8C08F /* ISONSDateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */; };
 		9535CE851CCEAEFE00A0BB83 /* PostRideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9535CE841CCEAEFE00A0BB83 /* PostRideController.swift */; };
@@ -49,6 +50,7 @@
 		3B589657EF3281BA97727C4C /* Pods-ShareMyRide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareMyRide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareMyRide/Pods-ShareMyRide.debug.xcconfig"; sourceTree = "<group>"; };
 		6E28EC6072DBFE9FCC1E2C67 /* Pods_ShareMyRide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareMyRide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		777A2E176309FFBDE18C5648 /* Pods-ShareMyRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareMyRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareMyRide/Pods-ShareMyRide.release.xcconfig"; sourceTree = "<group>"; };
+		9500241D1CD1CE2300C3C98D /* RideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideTests.swift; sourceTree = "<group>"; };
 		9511AB2E1CCA676E00FE993E /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISONSDateConverter.swift; sourceTree = "<group>"; };
 		9535CE841CCEAEFE00A0BB83 /* PostRideController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRideController.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				95F091621C75847100EDA2B5 /* ShareMyRideTests.swift */,
 				95F091641C75847100EDA2B5 /* Info.plist */,
+				9500241D1CD1CE2300C3C98D /* RideTests.swift */,
 			);
 			path = ShareMyRideTests;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F091631C75847100EDA2B5 /* ShareMyRideTests.swift in Sources */,
+				9500241E1CD1CE2300C3C98D /* RideTests.swift in Sources */,
 				95DAF6B61C7829B00066C435 /* TopPlacesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
