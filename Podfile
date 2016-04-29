@@ -11,6 +11,8 @@ pod 'DateTools'
 end
 
 target 'ShareMyRideTests' do
+use_frameworks!
+    
 
 end
 

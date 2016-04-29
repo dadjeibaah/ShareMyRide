@@ -12,24 +12,31 @@ import AlamoArgo
 import Alamofire
 
 class RidesController:UITableViewController {
-    
     var ridesViewModel:[Ride]!
     var ridesSearch:UISearchController!
+    var errorMessage:UIView!
     
     override func viewDidLoad() {
         ridesViewModel = []
         ridesSearch = UISearchController()
+        errorMessage = NSBundle.mainBundle().loadNibNamed("RideTableError", owner: self, options: nil).first as! UIView
     }
     
     override func viewDidAppear(animated: Bool) {
-        Ride.Get(){
-            (response:Response<[Ride], NSError>) in
-            if let rides = response.result.value{
-                self.ridesViewModel = rides
-                self.tableView.reloadData()
-            }
-            else {print(response.result.error)}
-        }
+        Ride.Get(
+                 onSuccess: {
+                    (response:[Ride]?) in
+                    if let rides = response{
+                        self.ridesViewModel = rides
+                        self.tableView.reloadData()
+                    }
+            },
+                 onFailure:{
+                    (error:NSError) in
+                    self.tableView.backgroundView = self.errorMessage
+                    print(error)
+                }
+            )
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -37,7 +44,7 @@ class RidesController:UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ridesViewModel.count
+           return ridesViewModel.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

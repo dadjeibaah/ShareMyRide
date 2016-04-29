@@ -18,13 +18,23 @@ class PostRideController:UIViewController {
     @IBOutlet weak var destination: UITextField!
     @IBOutlet weak var duration: UITextField!
     @IBOutlet weak var timeLeaving: UITextField!
+    var alertController:UIAlertController!
+    var cancelAlertAction:UIAlertAction!
     
     override func viewDidLoad() {
         setupDatePicker()
+        setupAlertController()
         duration.keyboardType = .NumberPad
         timeLeaving.inputView = datepicker
         postRideViewModel = ["destination":"", "duration":"", "timeLeaving":""]
         
+        
+        
+    }
+    func setupAlertController(){
+       alertController = UIAlertController(title: "Failed to Post", message: "We were unable to post your ride to the world, Please try again", preferredStyle: .Alert)
+        cancelAlertAction = UIAlertAction(title: "Cancel", style: .Default, handler: {(action) in })
+        alertController.addAction(cancelAlertAction)
     }
     
     func selectedDate(){
@@ -69,18 +79,17 @@ class PostRideController:UIViewController {
             latitude:0.0
         )
         getPostValues(ridePost)
-        ridePost.post(){
-            (response:Response<Ride, NSError>) in
-            if let ride:Ride = response.result.value{
-                print(ridePost)
-                ridePost = ride.copyWithZone(nil) as! Ride
-                print(ridePost)
-                self.tabBarController?.selectedIndex = 0
-            }else{
-                print(response.result.error)
-            }
-        }
-
+        ridePost.post(
+                      { (ride:Ride) in
+                        ridePost = ride.copyWithZone(nil) as! Ride
+                        self.tabBarController?.selectedIndex = 0
+            },
+                      onFailure: {(error:NSError) in
+                        print(error)
+                        self.presentViewController(self.alertController, animated:true, completion: {})
+                        
+                        
+        })
     }
     
     func dismissFocusOnAllTextFields(){

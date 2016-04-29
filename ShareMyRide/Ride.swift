@@ -13,7 +13,7 @@ import Alamofire
 
 
 class Ride :Decodable, NSCopying{
-    static let manager = Alamofire.Manager.sharedInstance
+    static var manager = Alamofire.Manager.sharedInstance
     static let URLRequest: NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string:"http://localhost:8080/rides")!)
     private var managerForInstance:Manager
     var id:Int
@@ -44,7 +44,7 @@ class Ride :Decodable, NSCopying{
     }
     
     
-    func post(response:Response<Ride, NSError> -> Void){
+    func post(onSuccess:Ride -> Void, onFailure:NSError -> Void){
         let urlRequest = NSMutableURLRequest(URL: NSURL(string:"http://localhost:8080/rides")!)
         urlRequest.HTTPMethod = Alamofire.Method.POST.rawValue
         do{
@@ -54,12 +54,29 @@ class Ride :Decodable, NSCopying{
         }
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        managerForInstance.request(urlRequest).responseDecodable(completionHandler:response)
+        managerForInstance.request(urlRequest).responseDecodable{
+            (response:Response<Ride, NSError>) in
+            if response.result.isSuccess{
+                if let ride = response.result.value{
+                    onSuccess(ride)
+                }
+            }else{
+                onFailure(response.result.error!)
+            }
+        }
     }
     
-    static func Get(rideId:String = "", response:Response<[Ride], NSError> -> Void){
+    static func Get(rideId:String = "", onSuccess:[Ride] -> Void, onFailure:NSError -> Void){
         URLRequest.HTTPMethod = Alamofire.Method.GET.rawValue
-        manager.request(Ride.URLRequest).responseDecodable(completionHandler: response)
+        manager.request(Ride.URLRequest).responseDecodable(){
+            (response:Response<[Ride], NSError>) in
+            if response.result.isSuccess{
+                onSuccess(response.result.value!)
+            }
+            else {
+                onFailure(response.result.error!)
+            }
+        }
     }
     
     private func toDictionary()->[String:String]{
