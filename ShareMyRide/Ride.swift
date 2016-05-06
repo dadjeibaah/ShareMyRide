@@ -14,7 +14,7 @@ import Alamofire
 
 class Ride :Decodable, NSCopying{
     static var manager = Alamofire.Manager.sharedInstance
-    static let URLRequest: NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string:"http://localhost:8080/rides")!)
+    static let URLRequest: NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string:"http://ridealongapi-test-deebo91.boxfuse.io/rides")!)
     private var managerForInstance:Manager
     var id:Int
     var riderSharer:Int
@@ -45,7 +45,7 @@ class Ride :Decodable, NSCopying{
     
     
     func post(onSuccess:Ride -> Void, onFailure:NSError -> Void){
-        let urlRequest = NSMutableURLRequest(URL: NSURL(string:"http://localhost:8080/rides")!)
+        let urlRequest = NSMutableURLRequest(URL: NSURL(string:"http://ridealongapi-test-deebo91.boxfuse.io/    rides")!)
         urlRequest.HTTPMethod = Alamofire.Method.POST.rawValue
         do{
             urlRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(self.toDictionary(), options: NSJSONWritingOptions())

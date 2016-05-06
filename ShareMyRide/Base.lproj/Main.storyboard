@@ -80,7 +80,7 @@
         <!--Rides-->
         <scene sceneID="gan-Qs-eV5">
             <objects>
-                <tableViewController id="QJo-uZ-D8g" customClass="RidesController" customModule="ShareMyRide" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="QJo-uZ-D8g" customClass="RidesController" customModule="ShareMyRide" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="x2D-F1-9Nk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,6 +197,7 @@
                                     <outlet property="destination" destination="ScN-yT-6mk" id="bto-Hk-ef3"/>
                                     <outlet property="duration" destination="58T-7H-bGo" id="LQP-R6-qhp"/>
                                     <outlet property="time" destination="jCC-5b-pTk" id="zkq-9F-USZ"/>
+                                    <segue destination="dgi-Yl-PWc" kind="show" id="79e-eg-dLg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -211,6 +212,25 @@
             </objects>
             <point key="canvasLocation" x="1940" y="-459"/>
         </scene>
+        <!--Ride Detail-->
+        <scene sceneID="EJB-qA-HjW">
+            <objects>
+                <viewController id="dgi-Yl-PWc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qRy-Y7-cms"/>
+                        <viewControllerLayoutGuide type="bottom" id="iyf-Cd-U95"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x9f-nQ-EOc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ride Detail" id="5gp-j8-pm1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n0N-Or-fAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2774" y="-459"/>
+        </scene>
         <!--Places-->
         <scene sceneID="nZS-7M-hPt">
             <objects>
@@ -223,7 +243,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8ei-3c-zDc">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8ei-3c-zDc">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gKE-lU-4aK">
@@ -343,7 +363,6 @@
                     <connections>
                         <segue destination="74z-28-xGg" kind="relationship" relationship="viewControllers" id="33M-rH-pih"/>
                         <segue destination="Wyp-lB-RFX" kind="relationship" relationship="viewControllers" id="uo7-gs-mxo"/>
-                        <segue destination="8I7-oB-caF" kind="relationship" relationship="viewControllers" id="V7l-1y-o7O"/>
                         <segue destination="laG-eI-W2J" kind="relationship" relationship="viewControllers" id="GKt-zk-Jkq"/>
                     </connections>
                 </tabBarController>
@@ -388,25 +407,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2F-ig-Pqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1156" y="-459"/>
-        </scene>
-        <!--Places-->
-        <scene sceneID="maO-Tw-xhE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8I7-oB-caF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Places" id="YLF-Y3-Itp"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dGq-5b-uNk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2Xe-9t-rfk" kind="relationship" relationship="rootViewController" id="Lty-cT-K40"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zyY-r1-eUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1156" y="1110"/>
         </scene>
         <!--Messages-->
         <scene sceneID="lqv-p8-hNT">

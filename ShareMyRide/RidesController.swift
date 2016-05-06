@@ -12,6 +12,9 @@ import AlamoArgo
 import Alamofire
 
 class RidesController:UITableViewController {
+    
+    let rideDetailSegue = "showRideDetail"
+    
     var ridesViewModel:[Ride]!
     var ridesSearch:UISearchController!
     var errorMessage:UIView!
@@ -51,6 +54,12 @@ class RidesController:UITableViewController {
         let tableViewCell = tableView.dequeueReusableCellWithIdentifier("RidesTableViewCell", forIndexPath: indexPath) as! RidesTableViewCell
         tableViewCell.loadCellWithRideInfo(ridesViewModel[indexPath.row])
         return tableViewCell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == rideDetailSegue{
+            
+        }
     }
     
     
