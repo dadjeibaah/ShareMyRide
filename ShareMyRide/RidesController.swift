@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import AlamoArgo
+
 import Alamofire
 
 class RidesController:UITableViewController {
@@ -17,29 +17,41 @@ class RidesController:UITableViewController {
     
     var ridesViewModel:[Ride]!
     var ridesSearch:UISearchController!
+    let user = CoreUser()
     var errorMessage:UIView!
     
     override func viewDidLoad() {
+     
         ridesViewModel = []
         ridesSearch = UISearchController()
         errorMessage = NSBundle.mainBundle().loadNibNamed("RideTableError", owner: self, options: nil).first as! UIView
+        
+        
     }
     
+     @IBAction func facebookLogout(sender: AnyObject) {
+        FBSDKLoginManager().logOut()
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "LoginState")
+        self.transitionToLoginViewController()
+    }
+   
     override func viewDidAppear(animated: Bool) {
-        Ride.Get(
-                 onSuccess: {
-                    (response:[Ride]?) in
-                    if let rides = response{
-                        self.ridesViewModel = rides
-                        self.tableView.reloadData()
-                    }
-            },
-                 onFailure:{
-                    (error:NSError) in
-                    self.tableView.backgroundView = self.errorMessage
-                    print(error)
-                }
-            )
+        let params = [
+            "communityId":user.communities[0],
+            "currentTime":NSDate().formattedDateWithFormat("yyyy-MM-dd'T'HH:mmZZZ")!
+        ]
+        
+      
+        Ride.nearby(params, onSuccess: {
+            (rides:[Ride]) in
+            self.ridesViewModel = rides
+            self.tableView.reloadData()
+            
+            }, onFailure: {
+                (error:NSError) in
+                print(error)
+        })
+        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -57,8 +69,9 @@ class RidesController:UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == rideDetailSegue{
-            
+        if segue.identifier == rideDetailSegue {
+            let destinationVC = segue.destinationViewController as! RideDetailController
+            destinationVC.rideDetail = ridesViewModel[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
     

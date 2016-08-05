@@ -8,28 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		2541792A1E82328FC463F0AF /* Pods_ShareMyRideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA6925BEF4D309E0D8CBC25 /* Pods_ShareMyRideTests.framework */; };
-		950024201CD1CF0A00C3C98D /* RESTResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9500241F1CD1CF0A00C3C98D /* RESTResource.swift */; };
 		9511AB2F1CCA676E00FE993E /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511AB2E1CCA676E00FE993E /* Ride.swift */; };
+		9514133B1D349BF800679922 /* DestinationSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9514133A1D349BF800679922 /* DestinationSearchController.swift */; };
+		952F89C21CFE8D0300DFDC4D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952F89C11CFE8D0300DFDC4D /* MainTabBarController.swift */; };
 		95315FD71CCC93D900D8C08F /* ISONSDateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */; };
 		9535CE851CCEAEFE00A0BB83 /* PostRideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9535CE841CCEAEFE00A0BB83 /* PostRideController.swift */; };
-		954B74A41CC3030000F02DCF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B74A31CC3030000F02DCF /* User.swift */; };
+		953A3E571D28319900FF82F2 /* TimeViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953A3E561D28319900FF82F2 /* TimeViewService.swift */; };
+		954B74A41CC3030000F02DCF /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B74A31CC3030000F02DCF /* Users.swift */; };
+		9565F1381D3758B600695EED /* MKDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565F1371D3758B600695EED /* MKDestination.swift */; };
 		957B25741C7ECA15005555F3 /* RidesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B25731C7ECA15005555F3 /* RidesController.swift */; };
 		957B25761C7F90D7005555F3 /* RidesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B25751C7F90D7005555F3 /* RidesTableViewCell.swift */; };
 		957B25781C80DB87005555F3 /* RidesConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B25771C80DB87005555F3 /* RidesConversationController.swift */; };
-		958523A41C7A332F00D6F9C6 /* PlacesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958523A31C7A332F00D6F9C6 /* PlacesCollectionCell.swift */; };
+		957C419B1D34754F00B93694 /* DestinationResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957C419A1D34754F00B93694 /* DestinationResultsController.swift */; };
+		9581B0C21D092132000DAE3D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581B0C11D092132000DAE3D /* DataController.swift */; };
+		958912C21D08953400E6383F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958912C11D08953400E6383F /* CoreData.framework */; };
+		958912C51D08955900E6383F /* RideAlong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 958912C31D08955900E6383F /* RideAlong.xcdatamodeld */; };
+		958AE8321CF35F7E00D1F48D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958AE8311CF35F7E00D1F48D /* FBSDKCoreKit.framework */; };
+		958AE8341CF362BF00D1F48D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958AE8331CF362BF00D1F48D /* FBSDKLoginKit.framework */; };
+		958AE8361CF362CE00D1F48D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958AE8351CF362CE00D1F48D /* Bolts.framework */; };
+		958AE8381CF3664D00D1F48D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958AE8371CF3664D00D1F48D /* LoginViewController.swift */; };
+		958F78A71CF3F8BA00207C47 /* Communities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F78A61CF3F8BA00207C47 /* Communities.swift */; };
+		958F78A91CF4ACC800207C47 /* RestDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F78A81CF4ACC800207C47 /* RestDecodable.swift */; };
 		9596249F1C878FE1007878F6 /* RidesMessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596249E1C878FE1007878F6 /* RidesMessagesController.swift */; };
+		959D7BFB1CE291CC005B0AD8 /* RideDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D7BFA1CE291CC005B0AD8 /* RideDetailController.swift */; };
 		95AD0AA01CD2842F00BC304F /* RideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD0A9F1CD2842F00BC304F /* RideTests.swift */; };
 		95C7B39A1CD2A19B00C7B96C /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3991CD2A19B00C7B96C /* MockURLProtocol.swift */; };
 		95D122ED1CD3D8A100ECDFD6 /* RideTableError.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D122EC1CD3D8A100ECDFD6 /* RideTableError.xib */; };
-		95DAF6B51C7829B00066C435 /* TopPlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAF6B41C7829B00066C435 /* TopPlacesRepository.swift */; };
-		95DAF6B61C7829B00066C435 /* TopPlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAF6B41C7829B00066C435 /* TopPlacesRepository.swift */; };
+		95EB342E1D0281B200B98AFA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EB342D1D0281B200B98AFA /* Login.storyboard */; };
+		95EB34301D03043C00B98AFA /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EB342F1D03043C00B98AFA /* UIViewControllerExtensions.swift */; };
 		95F0914E1C75847100EDA2B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0914D1C75847100EDA2B5 /* AppDelegate.swift */; };
-		95F091501C75847100EDA2B5 /* PlacesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0914F1C75847100EDA2B5 /* PlacesController.swift */; };
 		95F091531C75847100EDA2B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F091511C75847100EDA2B5 /* Main.storyboard */; };
 		95F091551C75847100EDA2B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95F091541C75847100EDA2B5 /* Assets.xcassets */; };
 		95F091581C75847100EDA2B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F091561C75847100EDA2B5 /* LaunchScreen.storyboard */; };
 		95F091631C75847100EDA2B5 /* ShareMyRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F091621C75847100EDA2B5 /* ShareMyRideTests.swift */; };
 		95F0916E1C75847100EDA2B5 /* ShareMyRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0916D1C75847100EDA2B5 /* ShareMyRideUITests.swift */; };
+		95FB87171D455C0A002E9E3B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB87161D455C0A002E9E3B /* SignupViewController.swift */; };
 		9BC19BC6305C13B9DC371DC7 /* Pods_ShareMyRide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E28EC6072DBFE9FCC1E2C67 /* Pods_ShareMyRide.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,25 +69,38 @@
 		4DA6925BEF4D309E0D8CBC25 /* Pods_ShareMyRideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareMyRideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E28EC6072DBFE9FCC1E2C67 /* Pods_ShareMyRide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareMyRide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		777A2E176309FFBDE18C5648 /* Pods-ShareMyRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareMyRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareMyRide/Pods-ShareMyRide.release.xcconfig"; sourceTree = "<group>"; };
-		9500241F1CD1CF0A00C3C98D /* RESTResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTResource.swift; sourceTree = "<group>"; };
 		9511AB2E1CCA676E00FE993E /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
+		9514133A1D349BF800679922 /* DestinationSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationSearchController.swift; sourceTree = "<group>"; };
+		952F89C11CFE8D0300DFDC4D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISONSDateConverter.swift; sourceTree = "<group>"; };
 		9535CE841CCEAEFE00A0BB83 /* PostRideController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRideController.swift; sourceTree = "<group>"; };
-		954B74A31CC3030000F02DCF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		953A3E561D28319900FF82F2 /* TimeViewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewService.swift; sourceTree = "<group>"; };
+		954B74A31CC3030000F02DCF /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		9565F1371D3758B600695EED /* MKDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKDestination.swift; sourceTree = "<group>"; };
 		957B25731C7ECA15005555F3 /* RidesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesController.swift; sourceTree = "<group>"; };
 		957B25751C7F90D7005555F3 /* RidesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesTableViewCell.swift; sourceTree = "<group>"; };
 		957B25771C80DB87005555F3 /* RidesConversationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesConversationController.swift; sourceTree = "<group>"; };
 		957B25791C80DC18005555F3 /* ShareMyRide-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareMyRide-Bridging-Header.h"; sourceTree = "<group>"; };
+		957C419A1D34754F00B93694 /* DestinationResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationResultsController.swift; sourceTree = "<group>"; };
+		9581B0C11D092132000DAE3D /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		958523A11C7A31B300D6F9C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		958523A31C7A332F00D6F9C6 /* PlacesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCollectionCell.swift; sourceTree = "<group>"; };
+		958912C11D08953400E6383F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		958912C41D08955900E6383F /* RideAlong.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RideAlong.xcdatamodel; sourceTree = "<group>"; };
+		958AE8311CF35F7E00D1F48D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDKs/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		958AE8331CF362BF00D1F48D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = FacebookSDKs/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		958AE8351CF362CE00D1F48D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = FacebookSDKs/Bolts.framework; sourceTree = "<group>"; };
+		958AE8371CF3664D00D1F48D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		958F78A61CF3F8BA00207C47 /* Communities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communities.swift; sourceTree = "<group>"; };
+		958F78A81CF4ACC800207C47 /* RestDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestDecodable.swift; sourceTree = "<group>"; };
 		9596249E1C878FE1007878F6 /* RidesMessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesMessagesController.swift; sourceTree = "<group>"; };
+		959D7BFA1CE291CC005B0AD8 /* RideDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailController.swift; sourceTree = "<group>"; };
 		95AD0A9F1CD2842F00BC304F /* RideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideTests.swift; sourceTree = "<group>"; };
 		95C7B3991CD2A19B00C7B96C /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		95D122EC1CD3D8A100ECDFD6 /* RideTableError.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RideTableError.xib; sourceTree = "<group>"; };
-		95DAF6B41C7829B00066C435 /* TopPlacesRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopPlacesRepository.swift; sourceTree = "<group>"; };
+		95EB342D1D0281B200B98AFA /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		95EB342F1D03043C00B98AFA /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		95F0914A1C75847100EDA2B5 /* ShareMyRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareMyRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F0914D1C75847100EDA2B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95F0914F1C75847100EDA2B5 /* PlacesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesController.swift; sourceTree = "<group>"; };
 		95F091521C75847100EDA2B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95F091541C75847100EDA2B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95F091571C75847100EDA2B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,6 +111,7 @@
 		95F091691C75847100EDA2B5 /* ShareMyRideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShareMyRideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F0916D1C75847100EDA2B5 /* ShareMyRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareMyRideUITests.swift; sourceTree = "<group>"; };
 		95F0916F1C75847100EDA2B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95FB87161D455C0A002E9E3B /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		E7C42F67F051E8D82984B015 /* Pods-ShareMyRideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareMyRideTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareMyRideTests/Pods-ShareMyRideTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,7 +120,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				958912C21D08953400E6383F /* CoreData.framework in Frameworks */,
 				9BC19BC6305C13B9DC371DC7 /* Pods_ShareMyRide.framework in Frameworks */,
+				958AE8321CF35F7E00D1F48D /* FBSDKCoreKit.framework in Frameworks */,
+				958AE8341CF362BF00D1F48D /* FBSDKLoginKit.framework in Frameworks */,
+				958AE8361CF362CE00D1F48D /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +149,10 @@
 		08CF10C725EE49E6FF6DAEA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				958912C11D08953400E6383F /* CoreData.framework */,
+				958AE8351CF362CE00D1F48D /* Bolts.framework */,
+				958AE8331CF362BF00D1F48D /* FBSDKLoginKit.framework */,
+				958AE8311CF35F7E00D1F48D /* FBSDKCoreKit.framework */,
 				6E28EC6072DBFE9FCC1E2C67 /* Pods_ShareMyRide.framework */,
 				4DA6925BEF4D309E0D8CBC25 /* Pods_ShareMyRideTests.framework */,
 			);
@@ -138,13 +173,18 @@
 		95DAF6AD1C78287F0066C435 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				95F0914F1C75847100EDA2B5 /* PlacesController.swift */,
-				958523A31C7A332F00D6F9C6 /* PlacesCollectionCell.swift */,
 				957B25731C7ECA15005555F3 /* RidesController.swift */,
 				957B25751C7F90D7005555F3 /* RidesTableViewCell.swift */,
 				957B25771C80DB87005555F3 /* RidesConversationController.swift */,
 				9596249E1C878FE1007878F6 /* RidesMessagesController.swift */,
 				9535CE841CCEAEFE00A0BB83 /* PostRideController.swift */,
+				959D7BFA1CE291CC005B0AD8 /* RideDetailController.swift */,
+				958AE8371CF3664D00D1F48D /* LoginViewController.swift */,
+				952F89C11CFE8D0300DFDC4D /* MainTabBarController.swift */,
+				95EB342F1D03043C00B98AFA /* UIViewControllerExtensions.swift */,
+				957C419A1D34754F00B93694 /* DestinationResultsController.swift */,
+				9514133A1D349BF800679922 /* DestinationSearchController.swift */,
+				95FB87161D455C0A002E9E3B /* SignupViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -153,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */,
+				953A3E561D28319900FF82F2 /* TimeViewService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -163,6 +204,7 @@
 				95F091561C75847100EDA2B5 /* LaunchScreen.storyboard */,
 				95F091511C75847100EDA2B5 /* Main.storyboard */,
 				95D122EC1CD3D8A100ECDFD6 /* RideTableError.xib */,
+				95EB342D1D0281B200B98AFA /* Login.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -181,10 +223,12 @@
 		95DAF6B11C7828E90066C435 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				95DAF6B41C7829B00066C435 /* TopPlacesRepository.swift */,
-				954B74A31CC3030000F02DCF /* User.swift */,
+				954B74A31CC3030000F02DCF /* Users.swift */,
 				9511AB2E1CCA676E00FE993E /* Ride.swift */,
-				9500241F1CD1CF0A00C3C98D /* RESTResource.swift */,
+				958F78A61CF3F8BA00207C47 /* Communities.swift */,
+				958F78A81CF4ACC800207C47 /* RestDecodable.swift */,
+				9581B0C11D092132000DAE3D /* DataController.swift */,
+				9565F1371D3758B600695EED /* MKDestination.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -192,6 +236,7 @@
 		95F091411C75847100EDA2B5 = {
 			isa = PBXGroup;
 			children = (
+				958912C31D08955900E6383F /* RideAlong.xcdatamodeld */,
 				958523A11C7A31B300D6F9C6 /* QuartzCore.framework */,
 				95F0914C1C75847100EDA2B5 /* ShareMyRide */,
 				95F091611C75847100EDA2B5 /* ShareMyRideTests */,
@@ -360,6 +405,7 @@
 				95F091581C75847100EDA2B5 /* LaunchScreen.storyboard in Resources */,
 				95D122ED1CD3D8A100ECDFD6 /* RideTableError.xib in Resources */,
 				95F091551C75847100EDA2B5 /* Assets.xcassets in Resources */,
+				95EB342E1D0281B200B98AFA /* Login.storyboard in Resources */,
 				95F091531C75847100EDA2B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,19 +524,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				958AE8381CF3664D00D1F48D /* LoginViewController.swift in Sources */,
+				958F78A91CF4ACC800207C47 /* RestDecodable.swift in Sources */,
+				95FB87171D455C0A002E9E3B /* SignupViewController.swift in Sources */,
 				95315FD71CCC93D900D8C08F /* ISONSDateConverter.swift in Sources */,
-				95F091501C75847100EDA2B5 /* PlacesController.swift in Sources */,
-				954B74A41CC3030000F02DCF /* User.swift in Sources */,
+				954B74A41CC3030000F02DCF /* Users.swift in Sources */,
+				95EB34301D03043C00B98AFA /* UIViewControllerExtensions.swift in Sources */,
 				957B25781C80DB87005555F3 /* RidesConversationController.swift in Sources */,
 				9511AB2F1CCA676E00FE993E /* Ride.swift in Sources */,
 				9535CE851CCEAEFE00A0BB83 /* PostRideController.swift in Sources */,
-				958523A41C7A332F00D6F9C6 /* PlacesCollectionCell.swift in Sources */,
 				9596249F1C878FE1007878F6 /* RidesMessagesController.swift in Sources */,
+				959D7BFB1CE291CC005B0AD8 /* RideDetailController.swift in Sources */,
+				957C419B1D34754F00B93694 /* DestinationResultsController.swift in Sources */,
+				9565F1381D3758B600695EED /* MKDestination.swift in Sources */,
+				9581B0C21D092132000DAE3D /* DataController.swift in Sources */,
 				95F0914E1C75847100EDA2B5 /* AppDelegate.swift in Sources */,
+				958912C51D08955900E6383F /* RideAlong.xcdatamodeld in Sources */,
+				953A3E571D28319900FF82F2 /* TimeViewService.swift in Sources */,
 				957B25741C7ECA15005555F3 /* RidesController.swift in Sources */,
-				950024201CD1CF0A00C3C98D /* RESTResource.swift in Sources */,
-				95DAF6B51C7829B00066C435 /* TopPlacesRepository.swift in Sources */,
+				9514133B1D349BF800679922 /* DestinationSearchController.swift in Sources */,
+				958F78A71CF3F8BA00207C47 /* Communities.swift in Sources */,
 				957B25761C7F90D7005555F3 /* RidesTableViewCell.swift in Sources */,
+				952F89C21CFE8D0300DFDC4D /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,7 +555,6 @@
 			files = (
 				95F091631C75847100EDA2B5 /* ShareMyRideTests.swift in Sources */,
 				95AD0AA01CD2842F00BC304F /* RideTests.swift in Sources */,
-				95DAF6B61C7829B00066C435 /* TopPlacesRepository.swift in Sources */,
 				95C7B39A1CD2A19B00C7B96C /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,6 +692,10 @@
 			baseConfigurationReference = 3B589657EF3281BA97727C4C /* Pods-ShareMyRide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDKs",
+				);
 				INFOPLIST_FILE = ShareMyRide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -651,6 +709,10 @@
 			baseConfigurationReference = 777A2E176309FFBDE18C5648 /* Pods-ShareMyRide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDKs",
+				);
 				INFOPLIST_FILE = ShareMyRide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -749,6 +811,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		958912C31D08955900E6383F /* RideAlong.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				958912C41D08955900E6383F /* RideAlong.xcdatamodel */,
+			);
+			currentVersion = 958912C41D08955900E6383F /* RideAlong.xcdatamodel */;
+			path = RideAlong.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 95F091421C75847100EDA2B5 /* Project object */;
 }

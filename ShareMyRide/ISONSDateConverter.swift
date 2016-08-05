@@ -10,9 +10,10 @@ import Foundation
 public extension NSDate{
     
     public class func ISOtoNSDate(date:String)-> NSDate{
-    let formatter = NSDateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    formatter.timeZone = NSTimeZone.localTimeZone()
-    return formatter.dateFromString(date)!
-    }
+    let utcformatter = NSDateFormatter()
+    utcformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    utcformatter.timeZone = NSTimeZone.init(name: "CDT")
+    let convertedDate = utcformatter.dateFromString(date)
+    return convertedDate!
+       }
 }

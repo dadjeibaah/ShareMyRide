@@ -7,7 +7,8 @@ pod 'JSQMessagesViewController'
 pod 'AlamoArgo'
 pod 'Curry'
 pod 'DateTools'
-
+pod 'Stormpath', '~> 1.2'
+pod 'PDKeychainBindingsController'
 end
 
 target 'ShareMyRideTests' do

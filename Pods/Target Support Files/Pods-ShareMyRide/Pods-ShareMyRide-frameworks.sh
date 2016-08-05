@@ -91,6 +91,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ShareMyRide/DateTools.framework"
   install_framework "Pods-ShareMyRide/JSQMessagesViewController.framework"
   install_framework "Pods-ShareMyRide/JSQSystemSoundPlayer.framework"
+  install_framework "Pods-ShareMyRide/PDKeychainBindingsController.framework"
+  install_framework "Pods-ShareMyRide/Stormpath.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ShareMyRide/AlamoArgo.framework"
@@ -100,4 +102,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ShareMyRide/DateTools.framework"
   install_framework "Pods-ShareMyRide/JSQMessagesViewController.framework"
   install_framework "Pods-ShareMyRide/JSQSystemSoundPlayer.framework"
+  install_framework "Pods-ShareMyRide/PDKeychainBindingsController.framework"
+  install_framework "Pods-ShareMyRide/Stormpath.framework"
 fi

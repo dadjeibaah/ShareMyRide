@@ -7,19 +7,55 @@
 //
 
 import UIKit
+import Alamofire
+import AlamoArgo
+import CoreData
+import Stormpath
+import PDKeychainBindingsController
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+    var bindings:PDKeychainBindings!
+  
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        StormpathConfiguration.defaultConfiguration.APIURL = NSURL(string: "http://localhost:8000")!
         
-        return true
+        let headers = ["Authorization": "\(Stormpath.sharedSession.accessToken!)"]
+        // Override point for customization after application launch.
+        Stormpath.sharedSession.refreshAccessToken()
+        Stormpath.sharedSession.refreshAccessToken({ (isLoggedIn:Bool, error:NSError?) in
+            print(error)
+            if !isLoggedIn{
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                self.window?.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
+            }else{
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                self.window?.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
+            }
+        })
+
+        
+       
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
+    
+    func application(application: UIApplication,
+                     openURL url: NSURL,
+                             sourceApplication: String?,
+                             annotation: AnyObject?) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(
+            application,
+            openURL: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -37,11 +73,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func AlamofireBootStrap(){
+//        {
+//            (isLoggedIn, error) in
+//            if !isLoggedIn{
+//                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+//                self.window?.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
+//            }
+//        }
+    }
+    
+    
 
 
 }

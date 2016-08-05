@@ -10,5 +10,9 @@
 #define ShareMyRide_h
 #import <JSQMessagesViewController/JSQMessages.h>
 #import <DateTools/DateTools.h>
+#import <DateTools/DTTimePeriod.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <PDKeychainBindingsController/PDKeychainBindings.h>
 
 #endif /* ShareMyRide_h */

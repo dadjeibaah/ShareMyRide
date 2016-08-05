@@ -9,21 +9,16 @@ PODS:
   - JSQMessagesViewController (7.2.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
-  - Mockingjay (1.1.1):
-    - Mockingjay/Core (= 1.1.1)
-    - Mockingjay/XCTest (= 1.1.1)
-  - Mockingjay/Core (1.1.1):
-    - URITemplate (~> 1.3)
-  - Mockingjay/XCTest (1.1.1):
-    - Mockingjay/Core
-  - URITemplate (1.3.1)
+  - PDKeychainBindingsController (0.0.1)
+  - Stormpath (1.2)
 
 DEPENDENCIES:
   - AlamoArgo
   - Curry
   - DateTools
   - JSQMessagesViewController
-  - Mockingjay
+  - PDKeychainBindingsController
+  - Stormpath (~> 1.2)
 
 SPEC CHECKSUMS:
   AlamoArgo: ea3573c5874ca68406e2f5de2c3660582bd560c7
@@ -33,7 +28,7 @@ SPEC CHECKSUMS:
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   JSQMessagesViewController: 73cab48aa92fc2d512f3b6724f3425cc47a19eb5
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
-  Mockingjay: 757f80abc947b5ec2918b1bb14f3066574720430
-  URITemplate: 398a48d6559e23b77bd41176b675b017ad1fc959
+  PDKeychainBindingsController: fa8cb3cf99f2ea9240d61066ed0549f34e2cec3c
+  Stormpath: 2cc5b19d774d6fe3d33b542019ca906b89391ea5
 
 COCOAPODS: 0.39.0

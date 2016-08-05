@@ -12,99 +12,75 @@ import Curry
 import Alamofire
 
 
-class Ride :Decodable, NSCopying{
-    static var manager = Alamofire.Manager.sharedInstance
-    static let URLRequest: NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string:"http://ridealongapi-test-deebo91.boxfuse.io/rides")!)
-    private var managerForInstance:Manager
-    var id:Int
-    var riderSharer:Int
-    var destination:String
-    var timeLeaving:String
-    var duration:Int
+class Ride :RestDecodable{
+    var resourceName: String = "rides"
+    var id:String?
+    var riderSharer:String
+    var destinationName:String
+    var departureTime:String
+    var duration:String
     var availableSeats:Int
-    var longitude:Float
-    var latitude: Float
+    var loc:[Double]
+    var community:String
+    var rideAlongs:[String]
     
     
     
-    init(id:Int, rideSharer:Int, destination:String, timeLeaving:String, duration:Int, availableSeats:Int,longitude:Float, latitude:Float){
+    init(id:String?, rideSharer:String, destinationName:String, departureTime:String, duration:String, availableSeats:Int, location:[Double], community:String, rideAlongs:[String]){
         self.id = id
         self.riderSharer = rideSharer
-        self.destination = destination
+        self.destinationName = destinationName
         self.availableSeats = availableSeats
-        self.timeLeaving = timeLeaving
+        self.departureTime = departureTime
         self.duration = duration
-        self.longitude = longitude
-        self.latitude = latitude
-        self.managerForInstance = Ride.manager
-    }
-    
-    @objc func copyWithZone(_zone: NSZone) -> AnyObject {
-        return self
+        self.loc = location
+        self.community = community
+        self.rideAlongs = rideAlongs
     }
     
     
-    func post(onSuccess:Ride -> Void, onFailure:NSError -> Void){
-        let urlRequest = NSMutableURLRequest(URL: NSURL(string:"http://ridealongapi-test-deebo91.boxfuse.io/    rides")!)
-        urlRequest.HTTPMethod = Alamofire.Method.POST.rawValue
-        do{
-            urlRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(self.toDictionary(), options: NSJSONWritingOptions())
-        }catch{
-            // No op
-        }
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        managerForInstance.request(urlRequest).responseDecodable{
-            (response:Response<Ride, NSError>) in
-            if response.result.isSuccess{
-                if let ride = response.result.value{
-                    onSuccess(ride)
-                }
-            }else{
-                onFailure(response.result.error!)
-            }
-        }
-    }
-    
-    static func Get(rideId:String = "", onSuccess:[Ride] -> Void, onFailure:NSError -> Void){
-        URLRequest.HTTPMethod = Alamofire.Method.GET.rawValue
-        manager.request(Ride.URLRequest).responseDecodable(){
-            (response:Response<[Ride], NSError>) in
-            if response.result.isSuccess{
-                onSuccess(response.result.value!)
-            }
-            else {
-                onFailure(response.result.error!)
-            }
-        }
-    }
-    
-    private func toDictionary()->[String:String]{
-        var result = [String:String]()
-        result["rideSharer"] = "1"
-        result["destination"] = self.destination
-        result["timeLeaving"] = self.timeLeaving
-        result["duration"] = self.duration.description
-        result["availableSeats"] = self.availableSeats.description
-        result["latitude"] = "0.0"
-        result["longitude"] = "0.0"
+
+    internal func toDictionary()-> AnyObject{
+        let result:NSDictionary = [
+        "rideSharer":self.riderSharer,
+        "destinationName":self.destinationName,
+        "departureTime":self.departureTime,
+        "duration":self.duration,
+        "availableSeats": self.availableSeats.description,
+        "loc":["type":"Point", "coordinates":[self.loc[0], self.loc[1]]],
+        "rideAlongs":self.rideAlongs,
+        "community":self.community
+        ]
         return result
     
     }
     
-    
+    static func nearby(params:[String:String], onSuccess:[Ride] -> Void, onFailure:NSError -> Void){
+        Alamofire.request(.POST, NSMutableURLRequest(URL: NSURL(string:"http://localhost:8000/rides/nearby")!), parameters:params).responseDecodable{
+            (response:Response<[Ride],NSError>) in
+            switch response.result{
+            case .Success(let rides):
+                onSuccess(rides)
+            case .Failure(let error):
+                onFailure(error)
+            }
+        }
+
+    }
     
     static func decode(json: JSON) -> Decoded<Ride> {
-        let create =  curry(Ride.init)
+    let create =  curry(Ride.init)
+        <^> json <|? "_id"
+        <*> json <| "rideSharer"
+        <*> json <| "destinationName"
+        <*> json <| "departureTime"
+        
         return create
-        <^> json <| "id"
-        <*> json <| ["rideSharer","id"]
-        <*> json <| "destination"
-        <*> json <| "timeLeaving"
         <*> json <| "duration"
         <*> json <| "availableSeats"
-        <*> json <| "latitude"
-        <*> json <| "longitude"
+        <*> json <|| ["loc","coordinates"]
+        <*> json <| "community"
+        <*> json <|| "riders"
     }
     
     
