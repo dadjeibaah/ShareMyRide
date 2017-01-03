@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Stormpath
+import Alamofire
+import FBSDKLoginKit
 import PDKeychainBindingsController
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
@@ -24,6 +26,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginView.delegate = self
         bindings = PDKeychainBindings.sharedKeychainBindings()
     }
+    
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         
         if ((error) != nil)
@@ -34,7 +37,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             print("User cancelled login")
         }
         else {
-            returnUserData()
+        returnUserData()
         }
         
         
@@ -45,6 +48,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     @IBAction func loginUser(sender: AnyObject) {
+        var message:String!
         guard let username = username.text else{
             return
         }
@@ -54,20 +58,19 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         Stormpath.sharedSession.login(username, password: password){
             (isLoggedIn, error) in
             if(isLoggedIn){
-                guard let access = Stormpath.sharedSession.accessToken else{
-                    return
-                }
-                guard let refresh = Stormpath.sharedSession.refreshToken else{
-                    return
-                }
-                self.bindings.setObject(access, forKey: "authToken")
-                self.bindings.setObject(refresh, forKey: "refreshToken")
                 self.transitionToMainViewController()
                 
             }else{
                 print(error)
                 let cancel:UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-                let alert = UIAlertController(title: "Login Failed", message: "It seems you dont have an account", preferredStyle: .ActionSheet)
+                if(error?.code == 400){
+                    message = "email or password maybe incorrect."
+                }else{
+                    message = "Seems like something isn't right, please try again"
+                }
+                
+                
+                let alert = UIAlertController(title: "Login Failed", message:message, preferredStyle: .ActionSheet)
                 alert.addAction(cancel)
                 self.presentViewController(alert, animated: true, completion: nil)
             }
@@ -111,6 +114,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
+    }
+    
+    func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool{
+        FBSDKAccessToken.currentAccessToken()
+        return true
     }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue){}

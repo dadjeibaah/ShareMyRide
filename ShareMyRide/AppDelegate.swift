@@ -20,29 +20,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
     var bindings:PDKeychainBindings!
+    var loginStoryboard:UIStoryboard!
+    var mainStoryBoard:UIStoryboard!
+    var loaderStoryboard:UIStoryboard!
   
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        StormpathConfiguration.defaultConfiguration.APIURL = NSURL(string: "http://localhost:8000")!
+        loaderStoryboard = UIStoryboard(name:"Loader", bundle: nil)
+        loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        mainStoryBoard = UIStoryboard(name: "Main", bundle:nil)
         
-        let headers = ["Authorization": "\(Stormpath.sharedSession.accessToken!)"]
-        // Override point for customization after application launch.
-        Stormpath.sharedSession.refreshAccessToken()
-        Stormpath.sharedSession.refreshAccessToken({ (isLoggedIn:Bool, error:NSError?) in
-            print(error)
-            if !isLoggedIn{
-                let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                self.window?.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
-            }else{
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                self.window?.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
+        let optionsBool = FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        self.window?.rootViewController = self.loaderStoryboard.instantiateInitialViewController()! as UIViewController
+        StormpathConfiguration.defaultConfiguration.APIURL = NSURL(string: "http://localhost:8000")!
+        if let token = Stormpath.sharedSession.accessToken{
+            let headers = ["Authorization": "\(token)"]
+            Alamofire.request(.GET, "http://localhost:8000/oauth/verify", headers:headers)
+                .validate()
+                .responseJSON { (response:Response<AnyObject, NSError>) in
+                    switch response.result{
+                    case .Success:
+                        self.window?.rootViewController?.transitionToMainViewController()
+                    case .Failure(let error):
+                        print(error)
+                        self.window?.rootViewController?.transitionToLoginViewController()
+                    }
+                    
+                    
             }
-        })
+        }else if (FBSDKAccessToken.currentAccessToken() != nil){
+            self.window?.rootViewController?.transitionToMainViewController()
+        }
+        else{
+             self.window?.rootViewController?.transitionToLoginViewController()
+        }
+       
+        
+//        // Override point for customization after application launch.
+//        Stormpath.sharedSession.refreshAccessToken({ (isLoggedIn:Bool, error:NSError?) in
+//            print(error)
+//            if !isLoggedIn{
+//                self.window?.rootViewController = self.loginStoryboard.instantiateInitialViewController()! as UIViewController
+//            }else{
+//                self.window?.rootViewController = self.mainStoryBoard.instantiateInitialViewController()! as UIViewController
+//            }
+//        })
 
         
        
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        return optionsBool
     }
     
     func application(application: UIApplication,

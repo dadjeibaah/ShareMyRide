@@ -14,6 +14,7 @@
 		95315FD71CCC93D900D8C08F /* ISONSDateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */; };
 		9535CE851CCEAEFE00A0BB83 /* PostRideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9535CE841CCEAEFE00A0BB83 /* PostRideController.swift */; };
 		953A3E571D28319900FF82F2 /* TimeViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953A3E561D28319900FF82F2 /* TimeViewService.swift */; };
+		953D0FE71D5ACC6B00ADBFC4 /* Loader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953D0FE61D5ACC6B00ADBFC4 /* Loader.storyboard */; };
 		954B74A41CC3030000F02DCF /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B74A31CC3030000F02DCF /* Users.swift */; };
 		9565F1381D3758B600695EED /* MKDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565F1371D3758B600695EED /* MKDestination.swift */; };
 		957B25741C7ECA15005555F3 /* RidesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B25731C7ECA15005555F3 /* RidesController.swift */; };
@@ -30,6 +31,8 @@
 		958F78A71CF3F8BA00207C47 /* Communities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F78A61CF3F8BA00207C47 /* Communities.swift */; };
 		958F78A91CF4ACC800207C47 /* RestDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F78A81CF4ACC800207C47 /* RestDecodable.swift */; };
 		9596249F1C878FE1007878F6 /* RidesMessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596249E1C878FE1007878F6 /* RidesMessagesController.swift */; };
+		959D00781D69201C00D05D57 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D00771D69201C00D05D57 /* Router.swift */; };
+		959D007A1D69641400D05D57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D00791D69641400D05D57 /* Constants.swift */; };
 		959D7BFB1CE291CC005B0AD8 /* RideDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D7BFA1CE291CC005B0AD8 /* RideDetailController.swift */; };
 		95AD0AA01CD2842F00BC304F /* RideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD0A9F1CD2842F00BC304F /* RideTests.swift */; };
 		95C7B39A1CD2A19B00C7B96C /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3991CD2A19B00C7B96C /* MockURLProtocol.swift */; };
@@ -75,6 +78,7 @@
 		95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISONSDateConverter.swift; sourceTree = "<group>"; };
 		9535CE841CCEAEFE00A0BB83 /* PostRideController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRideController.swift; sourceTree = "<group>"; };
 		953A3E561D28319900FF82F2 /* TimeViewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewService.swift; sourceTree = "<group>"; };
+		953D0FE61D5ACC6B00ADBFC4 /* Loader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loader.storyboard; sourceTree = "<group>"; };
 		954B74A31CC3030000F02DCF /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		9565F1371D3758B600695EED /* MKDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKDestination.swift; sourceTree = "<group>"; };
 		957B25731C7ECA15005555F3 /* RidesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 		958F78A61CF3F8BA00207C47 /* Communities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communities.swift; sourceTree = "<group>"; };
 		958F78A81CF4ACC800207C47 /* RestDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestDecodable.swift; sourceTree = "<group>"; };
 		9596249E1C878FE1007878F6 /* RidesMessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesMessagesController.swift; sourceTree = "<group>"; };
+		959D00771D69201C00D05D57 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		959D00791D69641400D05D57 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		959D7BFA1CE291CC005B0AD8 /* RideDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailController.swift; sourceTree = "<group>"; };
 		95AD0A9F1CD2842F00BC304F /* RideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideTests.swift; sourceTree = "<group>"; };
 		95C7B3991CD2A19B00C7B96C /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 			children = (
 				95315FD61CCC93D900D8C08F /* ISONSDateConverter.swift */,
 				953A3E561D28319900FF82F2 /* TimeViewService.swift */,
+				959D00771D69201C00D05D57 /* Router.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -205,6 +212,7 @@
 				95F091511C75847100EDA2B5 /* Main.storyboard */,
 				95D122EC1CD3D8A100ECDFD6 /* RideTableError.xib */,
 				95EB342D1D0281B200B98AFA /* Login.storyboard */,
+				953D0FE61D5ACC6B00ADBFC4 /* Loader.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -216,6 +224,7 @@
 				95F0914D1C75847100EDA2B5 /* AppDelegate.swift */,
 				95F091541C75847100EDA2B5 /* Assets.xcassets */,
 				957B25791C80DC18005555F3 /* ShareMyRide-Bridging-Header.h */,
+				959D00791D69641400D05D57 /* Constants.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -403,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F091581C75847100EDA2B5 /* LaunchScreen.storyboard in Resources */,
+				953D0FE71D5ACC6B00ADBFC4 /* Loader.storyboard in Resources */,
 				95D122ED1CD3D8A100ECDFD6 /* RideTableError.xib in Resources */,
 				95F091551C75847100EDA2B5 /* Assets.xcassets in Resources */,
 				95EB342E1D0281B200B98AFA /* Login.storyboard in Resources */,
@@ -540,12 +550,14 @@
 				9581B0C21D092132000DAE3D /* DataController.swift in Sources */,
 				95F0914E1C75847100EDA2B5 /* AppDelegate.swift in Sources */,
 				958912C51D08955900E6383F /* RideAlong.xcdatamodeld in Sources */,
+				959D00781D69201C00D05D57 /* Router.swift in Sources */,
 				953A3E571D28319900FF82F2 /* TimeViewService.swift in Sources */,
 				957B25741C7ECA15005555F3 /* RidesController.swift in Sources */,
 				9514133B1D349BF800679922 /* DestinationSearchController.swift in Sources */,
 				958F78A71CF3F8BA00207C47 /* Communities.swift in Sources */,
 				957B25761C7F90D7005555F3 /* RidesTableViewCell.swift in Sources */,
 				952F89C21CFE8D0300DFDC4D /* MainTabBarController.swift in Sources */,
+				959D007A1D69641400D05D57 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,10 +614,102 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		959D00731D68CEA000D05D57 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_ENDPOINT = "https://ridealong-api.herokuapp.com/";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"STAGING=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DSTAGING";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "ShareMyRide/ShareMyRide-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = Yes;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Staging;
+		};
+		959D00741D68CEA000D05D57 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B589657EF3281BA97727C4C /* Pods-ShareMyRide.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDKs",
+				);
+				INFOPLIST_FILE = ShareMyRide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onecreation.apps.mobile.ShareMyRide;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Staging;
+		};
+		959D00751D68CEA000D05D57 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7C42F67F051E8D82984B015 /* Pods-ShareMyRideTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ShareMyRideTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onecreation.apps.mobile.ShareMyRideTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShareMyRide.app/ShareMyRide";
+			};
+			name = Staging;
+		};
+		959D00761D68CEA000D05D57 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ShareMyRideUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onecreation.apps.mobile.ShareMyRideUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ShareMyRide;
+				USES_XCTRUNNER = YES;
+			};
+			name = Staging;
+		};
 		95F091701C75847100EDA2B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_ENDPOINT = "http://localhost:8000";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -640,10 +744,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				"MTL_ENABLE_DEBUG_INFO[arch=*]" = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareMyRide/ShareMyRide-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = Yes;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -652,6 +759,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_ENDPOINT = "https://ridealong-api.herokuapp.com/";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -682,6 +790,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareMyRide/ShareMyRide-Bridging-Header.h";
+				SWIFT_VERSION = Yes;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -778,6 +887,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95F091701C75847100EDA2B5 /* Debug */,
+				959D00731D68CEA000D05D57 /* Staging */,
 				95F091711C75847100EDA2B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -787,6 +897,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95F091731C75847100EDA2B5 /* Debug */,
+				959D00741D68CEA000D05D57 /* Staging */,
 				95F091741C75847100EDA2B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -796,6 +907,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95F091761C75847100EDA2B5 /* Debug */,
+				959D00751D68CEA000D05D57 /* Staging */,
 				95F091771C75847100EDA2B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -805,6 +917,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95F091791C75847100EDA2B5 /* Debug */,
+				959D00761D68CEA000D05D57 /* Staging */,
 				95F0917A1C75847100EDA2B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

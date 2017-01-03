@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Stormpath
 
 import Alamofire
 
@@ -15,15 +16,17 @@ class RidesController:UITableViewController {
     
     let rideDetailSegue = "showRideDetail"
     
+    @IBOutlet weak var editCommunityButton: UIBarButtonItem!
     var ridesViewModel:[Ride]!
-    var ridesSearch:UISearchController!
     let user = CoreUser()
+    var communityPicker:UIPickerView!
     var errorMessage:UIView!
     
     override func viewDidLoad() {
      
         ridesViewModel = []
-        ridesSearch = UISearchController()
+        communityPicker = UIPickerView()
+        self.tableView.tableHeaderView = UIScrollView()
         errorMessage = NSBundle.mainBundle().loadNibNamed("RideTableError", owner: self, options: nil).first as! UIView
         
         
@@ -31,6 +34,7 @@ class RidesController:UITableViewController {
     
      @IBAction func facebookLogout(sender: AnyObject) {
         FBSDKLoginManager().logOut()
+        Stormpath.sharedSession.logout()
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "LoginState")
         self.transitionToLoginViewController()
     }
@@ -68,6 +72,7 @@ class RidesController:UITableViewController {
         return tableViewCell
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == rideDetailSegue {
             let destinationVC = segue.destinationViewController as! RideDetailController
@@ -75,5 +80,34 @@ class RidesController:UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        var rideToDelete:Ride = ridesViewModel[indexPath.row] as Ride
+        if editingStyle == .Delete && rideToDelete.riderSharer != "577070f01e9f5d2614de1eb4"{
+            Alamofire.request(.DELETE, "http://localhost:8000/\(rideToDelete.resourceName)/\(rideToDelete.id!)")
+                .validate()
+                .responseJSON(completionHandler: { (response:Response<AnyObject, NSError>) in
+                    switch response.result{
+                    case .Success:
+                        self.ridesViewModel.removeAtIndex(indexPath.row)
+                        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    case .Failure(let error):
+                        print(error)
+                    }
+            })
+        }else{
+            
+        }
+    }
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+         let rideToDelete:Ride = ridesViewModel[indexPath.row] as Ride
+        if rideToDelete.riderSharer != "577070f01e9f5d2614de1eb4"{
+            return .None
+        }else{
+            return .Delete
+        }
+    }
+    
     
 }
+

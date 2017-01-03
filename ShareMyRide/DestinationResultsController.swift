@@ -13,7 +13,7 @@ import MapKit
 class DestinationResultsController: UITableViewController, UISearchControllerDelegate, UISearchResultsUpdating {
     
     var showLocationDelegate:DisplayMapSearchResult? = nil
-    var mapView:MKMapView? = nil
+    weak var mapView:MKMapView? = nil
     var searchResults:[MKMapItem] = []
     var results:[String] = []
     

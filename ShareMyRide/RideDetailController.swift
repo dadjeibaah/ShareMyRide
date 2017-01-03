@@ -23,14 +23,16 @@ class RideDetailController:UIViewController {
         destinationLabel.text = rideDetail.destinationName
         timeLeavinglabel.text = TimeViewService.timeUntilLeaving(rideDetail.departureTime)
         duration.text = TimeViewService.totalDuration(rideDetail.departureTime, end: rideDetail.duration)
-
-    }
-    
-    override func viewDidAppear(animated: Bool) {
         if rideDetail.riderSharer == user.id{
             rideAlongButton.hidden = true
         }
+
     }
+    
+    
+    
+    override func viewDidAppear(animated: Bool) {
+            }
     
     @IBAction func requestRideAlong(sender: AnyObject) {
     

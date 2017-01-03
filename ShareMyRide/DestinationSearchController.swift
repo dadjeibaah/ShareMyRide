@@ -107,8 +107,14 @@ class DestinationSearchController: UIViewController, CLLocationManagerDelegate, 
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         receiveAnnotationDelegate!.populateAnnotation(view.annotation!)
-        dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    override func delete(sender: AnyObject?) {
+        print("DESTROY!!")
+    }
+    
+    
     
     
     

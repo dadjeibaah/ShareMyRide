@@ -11,30 +11,44 @@ import UIKit
 import AlamoArgo
 import Alamofire
 
-class PostRideController:UIViewController, UITextFieldDelegate{
+class PostRideController:UIViewController{
+    
+    let locationManager = CLLocationManager()
     
     var datepicker:UIDatePicker!
     var endDatePicker:UIDatePicker!
     var communitySelectionView:UIPickerView!
     var newPost:Ride!
+    var destinationSearchController:DestinationSearchController!
     var locationSearch:UISearchController! = nil
     var communityList:[Communities] = []
-    @IBOutlet weak var destination: UITextField!
+    var alertController:UIAlertController!
+    var cancelAlertAction:UIAlertAction!
+    var destinationSearch:UISearchController!
+    var destinationSearchResults:DestinationResultsController!
+    
+    
+    
     @IBOutlet weak var community: UITextField!
     @IBOutlet weak var duration: UITextField!
     @IBOutlet weak var departureTime: UITextField!
     @IBOutlet weak var availableSeats: UITextField!
-    var alertController:UIAlertController!
-    var cancelAlertAction:UIAlertAction!
+    @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var searchBarPlaceholder: UIView!
     
     override func viewDidLoad() {
-        destination.delegate = self
         setupDatePickers()
         setupAlertController()
-        setupLocationSearch()
+        setupSearchBar()
+        askLocationPermission()
+        setupLocationServices()
         communitySelectionView = UIPickerView()
         communitySelectionView.delegate = self
         communitySelectionView.dataSource = self
+        map.delegate = self
+        duration.delegate = self
+        departureTime.delegate = self
+        
         
         
         duration.keyboardType = .NumberPad
@@ -57,10 +71,17 @@ class PostRideController:UIViewController, UITextFieldDelegate{
         
     }
     
-    func setupLocationSearch(){
-        let destinationResults = DestinationResultsController()
-        locationSearch = UISearchController(searchResultsController: destinationResults)
-        locationSearch.searchResultsUpdater = destinationResults
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func setupSearchBar(){
+        destinationSearchResults = DestinationResultsController()
+        destinationSearchResults.mapView = map
+        destinationSearch = UISearchController(searchResultsController: destinationSearchResults)
+        destinationSearch.searchResultsUpdater = destinationSearchResults
+        destinationSearchResults.showLocationDelegate = self
+        self.searchBarPlaceholder.addSubview(destinationSearch.searchBar)
     }
     
     
@@ -87,8 +108,6 @@ class PostRideController:UIViewController, UITextFieldDelegate{
         let todaysDate = NSDate()
         duration.text = ""
         duration.text = ""
-        departureTime.text = ""
-        destination.text = ""
         departureTime.text = ""
         duration.text = ""
         availableSeats.text = ""
@@ -149,7 +168,7 @@ class PostRideController:UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func updateDestinationName(sender: AnyObject) {
-        newPost.destinationName = destination.text!
+        newPost.destinationName = "Test"
         newPost.loc = [Double](arrayLiteral: 23.600800037384033,46.76758746952729)
     }
     
@@ -165,7 +184,7 @@ class PostRideController:UIViewController, UITextFieldDelegate{
     
     @IBAction func postRide(sender: AnyObject) {
         dismissFocusOnAllTextFields()
-        newPost.availableSeats = Int(availableSeats.text!)!
+        
         guard let seats = Int(availableSeats.text!)else{
             newPost.availableSeats = 0
             return
@@ -179,7 +198,12 @@ class PostRideController:UIViewController, UITextFieldDelegate{
             },
                       onFailure: {(error:NSError) in
                         print(error)
-                        self.presentViewController(self.alertController, animated:true, completion: {})
+                        if error.code == 401{
+                            self.transitionToLoginViewController()
+                        }else{
+                            self.presentViewController(self.alertController, animated:true, completion: nil)
+                        }
+                        
                         
                         
         })
@@ -189,39 +213,16 @@ class PostRideController:UIViewController, UITextFieldDelegate{
     func dismissFocusOnAllTextFields(){
         if duration.isFirstResponder(){
             duration.resignFirstResponder()
-        }else if destination.isFirstResponder(){
-            destination.resignFirstResponder()
         }
         else if departureTime.isFirstResponder(){
             departureTime.resignFirstResponder()
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let touchedViews = touches.map{(touch: UITouch) -> UIView in return touch.view! }
-       
-        if !touchedViews.contains(duration) && duration.isFirstResponder(){
-            duration.resignFirstResponder()
-        }else if !touchedViews.contains(destination) && destination.isFirstResponder(){
-            destination.resignFirstResponder()
-        }
-        else if !touchedViews.contains(departureTime) && departureTime.isFirstResponder(){
-            departureTime.resignFirstResponder()
-        }
-        else if !touchedViews.contains(availableSeats) && availableSeats.isFirstResponder(){
-            availableSeats.resignFirstResponder()
-        }
-        super.touchesBegan(touches, withEvent: event)
-        
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        weak var mapController = segue.destinationViewController as? DestinationSearchController
+        mapController!.receiveAnnotationDelegate = self
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let mapController = segue.destinationViewController as! DestinationSearchController
-        mapController.receiveAnnotationDelegate = self
-    }
-    
-   
-    
-    
     
 }
 
@@ -229,7 +230,7 @@ extension PostRideController:ReceiveAnnotationDelegate{
     func populateAnnotation(annotation: MKAnnotation) {
         if let place = annotation.title{
             newPost.destinationName = place ?? "Unknown"
-            destination.text = newPost.destinationName
+           
         }
         newPost.loc = [annotation.coordinate.longitude, annotation.coordinate.latitude]
     }
@@ -262,3 +263,71 @@ extension PostRideController:UIPickerViewDelegate, UIPickerViewDataSource{
         pickerView.resignFirstResponder()
     }
 }
+
+extension PostRideController:CLLocationManagerDelegate, MKMapViewDelegate{
+    func setupLocationServices(){
+         locationManager.delegate = self
+    }
+    
+    func askLocationPermission(){
+        if CLLocationManager.authorizationStatus() == .NotDetermined{
+            locationManager.requestWhenInUseAuthorization()
+        }else{
+            locationManager.startUpdatingLocation()
+            
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse{
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first{
+            let locationSpan = MKCoordinateSpanMake(0.05, 0.05)
+            let region = MKCoordinateRegion(center: location.coordinate, span: locationSpan)
+            map.setRegion(region, animated: true)
+            locationManager.stopUpdatingLocation()
+        }
+    }
+}
+
+extension PostRideController:DisplayMapSearchResult{
+    func showPlaceMarkPin(map:MKMapView, placemark: MKPlacemark) {
+        let annotation: MKDestination
+        var cityState:String = ""
+        
+        map.removeAnnotations(map.annotations)
+        if let city = placemark.locality,
+            let state = placemark.administrativeArea {
+            cityState = "\(city) \(state)"
+        }
+        
+        newPost.destinationName = placemark.name!
+        destinationSearch.searchBar.text = placemark.name!
+        annotation = MKDestination(title: placemark.name!, subtitle:cityState, coordinate: placemark.coordinate)
+        map.addAnnotation(annotation)
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegionMake(placemark.coordinate, span)
+        map.setRegion(region, animated: true)
+    }
+
+}
+
+extension PostRideController:UITextFieldDelegate{
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == departureTime{
+              let todaysDate = NSDate()
+            datepicker.setDate(todaysDate, animated: true)
+            datepicker.minimumDate = todaysDate
+
+        } else if(textField == duration){
+            let endDuration = datepicker.date.dateByAddingHours(1)
+            endDatePicker.setDate(endDuration, animated: true)
+            endDatePicker.minimumDate = endDuration
+        }
+    }
+}
+

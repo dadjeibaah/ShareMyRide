@@ -20,12 +20,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What time?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ijq-1T-24R">
-                                <rect key="frame" x="200" y="194" width="200" height="30"/>
+                                <rect key="frame" x="20" y="333" width="237" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How long will you be?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7M-Um-nGW">
-                                <rect key="frame" x="200" y="256" width="200" height="30"/>
+                                <rect key="frame" x="343" y="333" width="237" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -34,53 +34,79 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOL-zn-Nvn">
-                                <rect key="frame" x="280" y="439" width="40" height="30"/>
-                                <state key="normal" title="Share"/>
+                                <rect key="frame" x="0.0" y="506" width="600" height="45"/>
+                                <color key="backgroundColor" red="0.43813404111788701" green="0.78070881158708327" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="snZ-kq-ghP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="postRide:" destination="c1G-EW-F6p" eventType="primaryActionTriggered" id="Mgj-wO-SIV"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where to?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xIp-bV-zj3">
-                                <rect key="frame" x="200" y="132" width="200" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="MKB-4z-Oe9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="updateDestinationName:" destination="c1G-EW-F6p" eventType="editingDidEnd" id="Jf7-OG-nbM"/>
-                                    <segue destination="NyI-dx-qzI" kind="presentation" identifier="showLocationSearch" id="hMw-tx-vbj"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="what community?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fot-BL-K94">
-                                <rect key="frame" x="200" y="310" width="200" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many seats?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqF-g1-oe1">
-                                <rect key="frame" x="200.5" y="360" width="200" height="30"/>
+                                <rect key="frame" x="20" y="395" width="237" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-Qi-4Il">
+                                <rect key="frame" x="0.0" y="116" width="600" height="176"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="176" id="zUu-R2-C8x"/>
+                                </constraints>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dec-E5-5Pb" userLabel="searchBarPlaceholder">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ER8-fz-xwL"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erC-ja-60i">
+                                <rect key="frame" x="265" y="300" width="70" height="198"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="uLO-R8-xT3"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="what community?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fot-BL-K94">
+                                <rect key="frame" x="343" y="395" width="237" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="G7M-Um-nGW" firstAttribute="top" secondItem="Ijq-1T-24R" secondAttribute="bottom" constant="32" id="3rP-R2-C1v"/>
-                            <constraint firstItem="Ijq-1T-24R" firstAttribute="top" secondItem="xIp-bV-zj3" secondAttribute="bottom" constant="32" id="5cq-0G-hII"/>
-                            <constraint firstItem="Ijq-1T-24R" firstAttribute="width" secondItem="xIp-bV-zj3" secondAttribute="width" id="7JS-Zu-IOz"/>
-                            <constraint firstItem="xIp-bV-zj3" firstAttribute="top" secondItem="VDv-LC-vdM" secondAttribute="bottom" constant="68" id="9uq-EE-2Ep"/>
-                            <constraint firstItem="xIp-bV-zj3" firstAttribute="centerX" secondItem="ruf-K3-nem" secondAttribute="centerX" id="FmP-DG-5ZS"/>
-                            <constraint firstItem="oqF-g1-oe1" firstAttribute="width" secondItem="fot-BL-K94" secondAttribute="width" id="GbG-d7-aU7"/>
-                            <constraint firstItem="oqF-g1-oe1" firstAttribute="centerX" secondItem="ruf-K3-nem" secondAttribute="centerX" id="Hfg-1d-hCD"/>
+                            <constraint firstItem="oqF-g1-oe1" firstAttribute="top" secondItem="Ijq-1T-24R" secondAttribute="bottom" constant="32" id="3ud-r1-iIo"/>
+                            <constraint firstItem="fot-BL-K94" firstAttribute="centerY" secondItem="erC-ja-60i" secondAttribute="centerY" constant="11" id="59G-57-xUS"/>
+                            <constraint firstItem="erC-ja-60i" firstAttribute="top" secondItem="SO8-Qi-4Il" secondAttribute="bottom" constant="8" id="8Mc-1Y-DRN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fot-BL-K94" secondAttribute="trailing" id="Gdh-FD-ZFM"/>
                             <constraint firstItem="YOL-zn-Nvn" firstAttribute="centerX" secondItem="ruf-K3-nem" secondAttribute="centerX" id="HnS-Qi-G31"/>
-                            <constraint firstItem="fot-BL-K94" firstAttribute="centerX" secondItem="ruf-K3-nem" secondAttribute="centerX" id="SBE-dN-pWX"/>
-                            <constraint firstItem="Ijq-1T-24R" firstAttribute="centerX" secondItem="ruf-K3-nem" secondAttribute="centerX" id="WU6-6J-ox9"/>
-                            <constraint firstItem="Q2Z-5P-axO" firstAttribute="top" secondItem="YOL-zn-Nvn" secondAttribute="bottom" constant="82" id="Zt9-nZ-bMr"/>
-                            <constraint firstItem="fot-BL-K94" firstAttribute="top" secondItem="G7M-Um-nGW" secondAttribute="bottom" constant="24" id="bH4-0B-C6m"/>
-                            <constraint firstItem="fot-BL-K94" firstAttribute="width" secondItem="G7M-Um-nGW" secondAttribute="width" id="kcs-Jc-sR6"/>
-                            <constraint firstItem="G7M-Um-nGW" firstAttribute="width" secondItem="Ijq-1T-24R" secondAttribute="width" id="q3P-3O-MkG"/>
-                            <constraint firstItem="G7M-Um-nGW" firstAttribute="centerX" secondItem="ruf-K3-nem" secondAttribute="centerX" id="rCh-1C-Xeg"/>
-                            <constraint firstItem="oqF-g1-oe1" firstAttribute="top" secondItem="fot-BL-K94" secondAttribute="bottom" constant="20" id="swl-6f-b1p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="G7M-Um-nGW" secondAttribute="trailing" id="LhY-6O-2ga"/>
+                            <constraint firstItem="SO8-Qi-4Il" firstAttribute="centerX" secondItem="ruf-K3-nem" secondAttribute="centerX" id="MbA-Ec-tKc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SO8-Qi-4Il" secondAttribute="trailing" constant="-20" id="QG2-7c-rhJ"/>
+                            <constraint firstItem="SO8-Qi-4Il" firstAttribute="top" secondItem="Dec-E5-5Pb" secondAttribute="bottom" constant="8" id="SWF-tD-OfK"/>
+                            <constraint firstItem="fot-BL-K94" firstAttribute="top" secondItem="G7M-Um-nGW" secondAttribute="bottom" constant="32" id="Ve2-Ja-8Ue"/>
+                            <constraint firstItem="erC-ja-60i" firstAttribute="leading" secondItem="oqF-g1-oe1" secondAttribute="trailing" constant="8" id="Vis-3U-SuZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YOL-zn-Nvn" secondAttribute="trailing" constant="-20" id="Whd-Om-diU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ijq-1T-24R" secondAttribute="leading" id="c1f-1V-gJG"/>
+                            <constraint firstItem="YOL-zn-Nvn" firstAttribute="top" secondItem="erC-ja-60i" secondAttribute="bottom" constant="8" id="dlV-z7-kzD"/>
+                            <constraint firstItem="G7M-Um-nGW" firstAttribute="leading" secondItem="erC-ja-60i" secondAttribute="trailing" constant="8" id="jsu-Rb-txF"/>
+                            <constraint firstItem="erC-ja-60i" firstAttribute="centerX" secondItem="ruf-K3-nem" secondAttribute="centerX" id="lBM-mQ-DB9"/>
+                            <constraint firstItem="Dec-E5-5Pb" firstAttribute="top" secondItem="VDv-LC-vdM" secondAttribute="bottom" id="lDj-Jf-8a5"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="oqF-g1-oe1" secondAttribute="leading" id="lgP-YE-Wjc"/>
+                            <constraint firstItem="SO8-Qi-4Il" firstAttribute="leading" secondItem="ruf-K3-nem" secondAttribute="leadingMargin" constant="-20" id="ne1-6D-jGj"/>
+                            <constraint firstItem="erC-ja-60i" firstAttribute="leading" secondItem="Ijq-1T-24R" secondAttribute="trailing" constant="8" id="rc4-AC-4Zq"/>
+                            <constraint firstItem="Dec-E5-5Pb" firstAttribute="leading" secondItem="ruf-K3-nem" secondAttribute="leadingMargin" constant="-20" id="sXc-0e-4Pk"/>
+                            <constraint firstItem="YOL-zn-Nvn" firstAttribute="leading" secondItem="ruf-K3-nem" secondAttribute="leadingMargin" constant="-20" id="u9B-8W-hin"/>
+                            <constraint firstItem="fot-BL-K94" firstAttribute="leading" secondItem="erC-ja-60i" secondAttribute="trailing" constant="8" id="vBG-EK-rnw"/>
+                            <constraint firstItem="Dec-E5-5Pb" firstAttribute="centerX" secondItem="ruf-K3-nem" secondAttribute="centerX" id="x9o-L5-S2T"/>
+                            <constraint firstItem="oqF-g1-oe1" firstAttribute="centerY" secondItem="erC-ja-60i" secondAttribute="centerY" constant="11" id="xDo-dd-REa"/>
+                            <constraint firstItem="Q2Z-5P-axO" firstAttribute="top" secondItem="YOL-zn-Nvn" secondAttribute="bottom" id="y6i-cv-8z9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dec-E5-5Pb" secondAttribute="trailing" constant="-20" id="yEa-Tm-Kq3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Share Your Ride" id="yGG-54-Fyc"/>
@@ -88,8 +114,9 @@
                         <outlet property="availableSeats" destination="oqF-g1-oe1" id="QoX-Pp-Lca"/>
                         <outlet property="community" destination="fot-BL-K94" id="XSc-vx-sZl"/>
                         <outlet property="departureTime" destination="Ijq-1T-24R" id="ArL-Pb-MgJ"/>
-                        <outlet property="destination" destination="xIp-bV-zj3" id="BDx-8D-Egr"/>
                         <outlet property="duration" destination="G7M-Um-nGW" id="q0O-yh-LbS"/>
+                        <outlet property="map" destination="SO8-Qi-4Il" id="3Gz-9v-bsV"/>
+                        <outlet property="searchBarPlaceholder" destination="Dec-E5-5Pb" id="Ujn-cY-9bC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Min-1I-hdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -237,10 +264,10 @@
             </objects>
             <point key="canvasLocation" x="2752" y="-459"/>
         </scene>
-        <!--Destination Search Controller-->
+        <!--View Controller-->
         <scene sceneID="4Se-QS-0QJ">
             <objects>
-                <viewController id="NyI-dx-qzI" customClass="DestinationSearchController" customModule="ShareMyRide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NyI-dx-qzI" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xcA-Qc-bac"/>
                         <viewControllerLayoutGuide type="bottom" id="dHY-RT-SJo"/>

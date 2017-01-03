@@ -11,6 +11,7 @@ import Argo
 import Curry
 import Alamofire
 import AlamoArgo
+import Stormpath
 
 protocol RestDecodable:class, Decodable{
     
@@ -24,17 +25,27 @@ extension RestDecodable {
     var baseUrl:String { return "http://localhost:8000"}
    
     
-    func delete(onSuccess:AnyObject -> Void, onFailure:NSError -> Void){
-        let urlRequest = NSMutableURLRequest(URL: NSURL(string:"\(baseUrl)/\(resourceName)/\(id)")!)
+    func delete<T:RestDecodable where T == T.DecodedType>(onSuccess:AnyObject -> Void, onFailure:NSError -> Void){
+        let urlRequest = NSMutableURLRequest(URL: NSURL(string:"\(baseUrl)/\(self.resourceName)/\(id)")!)
         urlRequest.HTTPMethod = Alamofire.Method.DELETE.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         do{
             urlRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(toDictionary() as AnyObject, options: NSJSONWritingOptions())
-            
-        }catch{
+                    }catch{
             // No op
         }
-        
+        Alamofire.request(urlRequest)
+            .validate()
+            .responseJSON(completionHandler: {
+                (response:Response<AnyObject, NSError>) in
+                switch response.result{
+                case .Success:
+                    onSuccess(response.result.value!)
+                case .Failure(let error):
+                    onFailure(error)
+                }
+            })
+
     }
     
     
@@ -56,6 +67,11 @@ extension RestDecodable {
     func post<T:RestDecodable where T == T.DecodedType>(onSuccess:T -> Void, onFailure:NSError -> Void){
         let urlRequest = NSMutableURLRequest(URL: NSURL(string:"\(baseUrl)/\(resourceName)")!)
         urlRequest.HTTPMethod = Alamofire.Method.POST.rawValue
+        guard let token = Stormpath.sharedSession.accessToken else{
+            return
+        }
+        let headers = ["Authorization":token]
+        urlRequest.allHTTPHeaderFields = headers
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         do{
             urlRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(toDictionary() as AnyObject, options: NSJSONWritingOptions())
@@ -68,21 +84,23 @@ extension RestDecodable {
     
     func postData<T:RestDecodable where T == T.DecodedType>(url:NSMutableURLRequest, onSuccess:T -> Void, onFailure:NSError -> Void){
         
-        Alamofire.request(url).responseDecodable{
+        Alamofire.request(url)
+            .validate()
+            .responseDecodable{
             (response:Response<T, NSError>) in
             if response.result.isSuccess{
                 if let ride = response.result.value{
                     onSuccess(ride)
                 }
             }else{
-                onFailure(response.result.error!)
+              onFailure(response.result.error!)
             }
         }
     }
     
     func deleteData(onSuccess:Bool -> Void, onFailure:NSError -> Void){
         let urlRequest = NSMutableURLRequest(URL: NSURL(string:"\(baseUrl)/\(resourceName)\(id)")!)
-        urlRequest.HTTPMethod = Alamofire.Method.POST.rawValue
+        urlRequest.HTTPMethod = Alamofire.Method.DELETE.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         Alamofire.request(urlRequest)
